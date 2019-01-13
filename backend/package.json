@@ -1,0 +1,22 @@
+{
+  "name": "enrollment_system_backend",
+  "version": "1.0.0",
+  "description": "A server that handles CRUD operations for the enrollment",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^4.42.0",
+    "sequelize-typescript": "^0.6.6"
+  },
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  }
+}
