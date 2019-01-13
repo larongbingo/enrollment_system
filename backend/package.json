@@ -9,13 +9,17 @@
   "author": "",
   "license": "AGPL-3.0",
   "dependencies": {
+    "bcrypt": "^3.0.3",
     "inversify": "^5.0.1",
     "mysql2": "^1.6.4",
+    "randomstring": "^1.1.5",
     "reflect-metadata": "^0.1.12",
     "sequelize": "^4.42.0",
     "sequelize-typescript": "^0.6.6"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/randomstring": "^1.1.6",
     "tslint": "^5.12.1",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.2.2"
