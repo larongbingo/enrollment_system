@@ -1,0 +1,15 @@
+{
+  "name": "enrollment_system",
+  "version": "1.0.0",
+  "description": "A web app that handles a college or university enrollment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "larongbingo",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
+  }
+}
