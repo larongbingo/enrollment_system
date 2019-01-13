@@ -4,6 +4,14 @@
     "semicolon": [true, "always"],
     "space-before-function-paren": false,
     "trailing-comma": [true, "always"],
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive"
+      }
+    ]
   }
 }
