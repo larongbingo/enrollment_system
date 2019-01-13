@@ -4,7 +4,9 @@
   "description": "A server that handles CRUD operations for the enrollment",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "tslint --config ./tslint.json ./app/*",
+    "build": "tsc --sourceMap --pretty",
+    "build:prod": "tsc --removeComments --pretty"
   },
   "author": "",
   "license": "AGPL-3.0",
