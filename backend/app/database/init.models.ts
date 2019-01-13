@@ -1,5 +1,6 @@
-import { Sequelize } from 'sequelize-typescript';
-import User from './models/user';
+import { Sequelize } from "sequelize-typescript";
+
+import User from "./models/user";
 
 export function initModels(sequelize: Sequelize) {
   sequelize.addModels([

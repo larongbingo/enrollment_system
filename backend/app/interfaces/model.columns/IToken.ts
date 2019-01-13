@@ -1,6 +1,6 @@
 export interface IToken {
   token: string;
-  userId: string;
+  userId?: string;
 }
 
 export default IToken;

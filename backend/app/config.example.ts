@@ -4,13 +4,13 @@
  */
 
 export const DATABASE_CONFIG = {
-  database: '<name of the database in the mysql server>',
-  username: '<username of the account in the mysql server>',
-  password: '<password of the account in the mysql server>'
+  database: "<name of the database in the mysql server>",
+  username: "<username of the account in the mysql server>",
+  password: "<password of the account in the mysql server>"
 };
 
 export const AUTH_CONFIG = {
-  bcrypt_secret: '<a word or something very long>'
+  bcrypt_secret: "<a word or something very long>"
 };
 
 const config = {

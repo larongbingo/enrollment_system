@@ -1,11 +1,13 @@
-import { FilteredModelAttributes, Model } from 'sequelize-typescript/lib/models/Model';
-import { IFindOptions, ICreateOptions } from 'sequelize-typescript';
-import { injectable } from 'inversify';
-import { DataAccess } from './interfaces/DataAccess';
-import User from './database/models/user';
+import { injectable } from "inversify";
+import { ICreateOptions, IFindOptions } from "sequelize-typescript";
+// tslint:disable-next-line:no-submodule-imports
+import { FilteredModelAttributes } from "sequelize-typescript/lib/models/Model";
+
+import User from "./database/models/user";
+import { IDataAccess } from "./interfaces/DataAccess";
 
 @injectable()
-export class UserDataAccess implements DataAccess<User> {
+export class UserDataAccess implements IDataAccess<User> {
   public async create(values?: FilteredModelAttributes<User>, options?: ICreateOptions) {
     return User.create(values, options);
   }
