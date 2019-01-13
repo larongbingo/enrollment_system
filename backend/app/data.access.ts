@@ -4,7 +4,7 @@ import { ICreateOptions, IFindOptions } from "sequelize-typescript";
 import { FilteredModelAttributes } from "sequelize-typescript/lib/models/Model";
 
 import User from "./database/models/user";
-import { IDataAccess } from "./interfaces/DataAccess";
+import { IDataAccess } from "./interfaces/IDataAccess";
 
 @injectable()
 export class UserDataAccess implements IDataAccess<User> {
