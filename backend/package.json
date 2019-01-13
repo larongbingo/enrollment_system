@@ -10,6 +10,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "inversify": "^5.0.1",
+    "mysql2": "^1.6.4",
     "reflect-metadata": "^0.1.12",
     "sequelize": "^4.42.0",
     "sequelize-typescript": "^0.6.6"
