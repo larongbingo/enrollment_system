@@ -3,6 +3,7 @@
   "rules": {
     "semicolon": [true, "always"],
     "space-before-function-paren": false,
-    "trailing-comma": [true, "always"]
+    "trailing-comma": [true, "always"],
+    "object-literal-sort-keys": false
   }
 }
