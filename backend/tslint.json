@@ -28,6 +28,7 @@
       "check-type-operator",
       "check-preblock",
       "check-postblock"
-    ]
+    ],
+    "no-trailing-whitespace": false
   }
 }
