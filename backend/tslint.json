@@ -12,6 +12,7 @@
         "import-sources-order": "case-insensitive",
         "named-imports-order": "case-insensitive"
       }
-    ]
+    ],
+    "variable-name": [true, "allow-leading-underscore", "check-format"]
   }
 }
