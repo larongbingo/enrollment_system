@@ -11,17 +11,19 @@ import { IDataAccess } from "../interfaces/IDataAccess";
 import { ISessionManager } from "../interfaces/ISessionManager";
 
 @injectable()
-export class SessionManager extends EventEmitter implements ISessionManager {
+export class SessionManager implements ISessionManager {
   private _tokenAccess: IDataAccess<Token>;
+  private _events: EventEmitter;
 
   constructor(
     @inject(CONSTANTS.dataAccess.Token)
     tokenDataAccess: IDataAccess<Token>
   ) {
-    super();
     this._tokenAccess = tokenDataAccess;
-    this.on("store", (token: string, userId) => this._tokenAccess.create({token, userId}));
-    this.on("delete", async (token: string) => {
+    this._events = new EventEmitter();
+
+    this._events.on("store", (token: string, userId) => this._tokenAccess.create({token, userId}));
+    this._events.on("delete", async (token: string) => {
       let tokenInstance = await this._tokenAccess.findOne({where: {token: {[Op.eq]: token}}});
       if(tokenInstance) { tokenInstance.destroy(); }
     });
@@ -29,12 +31,12 @@ export class SessionManager extends EventEmitter implements ISessionManager {
   
   public async create(details: User): Promise<string> {
     let token = sign({id: details.id}, AUTH_CONFIG.jwt_key);
-    this.emit("store", token, details.id);
+    this._events.emit("store", token, details.id);
     return token;
   }
 
   public async destroy(token: string): Promise<void> {
-    this.emit("delete", token);
+    this._events.emit("delete", token);
   }
 
   public async verify(token: string): Promise<boolean> {
