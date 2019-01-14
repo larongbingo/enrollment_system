@@ -1,4 +1,4 @@
-import { hash } from "bcrypt";
+import { compare, hash } from "bcrypt";
 import { generate } from "randomstring";
 import { BeforeCreate, BeforeUpdate, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
 
@@ -21,6 +21,7 @@ export class User extends Model<User> implements IUser {
   private static async hashPassword(instance: User) {
     instance.password = await hash(instance.password, AUTH_CONFIG.bcrypt_secret);
   }
+
   @PrimaryKey
   @Column(DataType.STRING)
   public id: string;
@@ -30,6 +31,10 @@ export class User extends Model<User> implements IUser {
 
   @Column(DataType.STRING)
   public password: string;
+
+  public async checkPassword(plain: string) {
+    return compare(plain, this.password);
+  }
 }
 
 export default User;
