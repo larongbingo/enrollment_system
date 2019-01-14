@@ -29,6 +29,7 @@
       "check-preblock",
       "check-postblock"
     ],
-    "no-trailing-whitespace": false
+    "no-trailing-whitespace": false,
+    "no-implicit-dependencies": [true, "dev"]
   }
 }
