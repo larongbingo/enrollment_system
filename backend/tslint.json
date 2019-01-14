@@ -13,6 +13,7 @@
         "named-imports-order": "case-insensitive"
       }
     ],
-    "variable-name": [true, "allow-leading-underscore", "check-format"]
+    "variable-name": [true, "allow-leading-underscore", "check-format"],
+    "prefer-const": false
   }
 }
