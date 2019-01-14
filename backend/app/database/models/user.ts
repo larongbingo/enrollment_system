@@ -19,7 +19,7 @@ export class User extends Model<User> implements IUser {
   @BeforeCreate
   @BeforeUpdate
   private static async hashPassword(instance: User) {
-    instance.password = await hash(instance.password, AUTH_CONFIG.bcrypt_secret);
+    instance.password = await hash(instance.password, 12);
   }
 
   @PrimaryKey

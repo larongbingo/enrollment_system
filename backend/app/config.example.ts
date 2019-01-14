@@ -10,7 +10,6 @@ export const DATABASE_CONFIG = {
 };
 
 export const AUTH_CONFIG = {
-  bcrypt_secret: "<a word or something very long>",
   jwt_key: "<a word or something very large>",
 };
 
