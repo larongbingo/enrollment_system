@@ -24,6 +24,7 @@ export class Authentication implements IAuth {
   }
 
   public async logIn(username: string, password: string): Promise<string | null> {
+    if(!username || !password) { return null; }
     let user: User | null = null;
     try {
       user = await this._users.findOne({where: {username: {[Op.eq]: username}}});
