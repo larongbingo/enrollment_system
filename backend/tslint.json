@@ -30,6 +30,8 @@
       "check-postblock"
     ],
     "no-trailing-whitespace": false,
-    "no-implicit-dependencies": [true, "dev"]
+    "no-implicit-dependencies": [true, "dev"],
+    "only-arrow-functions": false,
+    "no-console": false
   }
 }
