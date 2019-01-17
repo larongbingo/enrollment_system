@@ -7,7 +7,7 @@
     "lint": "tslint --config ./tslint.json ./app/*",
     "build": "tsc --sourceMap --pretty",
     "build:prod": "tsc --removeComments --pretty",
-    "test": "mocha ./build/tests/**/*.spec.js --exit",
+    "test": "mocha ./tests/**/*.spec.ts --exit -r ts-node/register",
     "scripts:sync-tables": "node ./build/scripts/sync.tables"
   },
   "author": "",
