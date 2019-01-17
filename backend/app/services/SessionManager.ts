@@ -10,6 +10,10 @@ import { User } from "../database/models/user";
 import { IDataAccess } from "../interfaces/IDataAccess";
 import { ISessionManager } from "../interfaces/ISessionManager";
 
+/**
+ * DO NOT USE! DEPRECATED
+ * @deprecated
+ */
 @injectable()
 export class SessionManager implements ISessionManager {
   private _tokenAccess: IDataAccess<Token>;
