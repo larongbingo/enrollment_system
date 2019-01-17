@@ -7,7 +7,7 @@ import { ISessionManager } from "../interfaces/ISessionManager";
 
 @injectable()
 export class ArraySessionManager implements ISessionManager {
-  private _sessions: string[];
+  private _sessions: string[] = [];
 
   public async create(details: User): Promise<string> {
     let token = sign({id: details.id}, AUTH_CONFIG.jwt_key);
