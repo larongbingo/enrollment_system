@@ -1,3 +1,4 @@
+import deprecated from "deprecated-decorator";
 import { EventEmitter } from "events";
 import { inject, injectable } from "inversify";
 import { sign, verify } from "jsonwebtoken";
@@ -14,6 +15,7 @@ import { ISessionManager } from "../interfaces/ISessionManager";
  * DO NOT USE! DEPRECATED
  * @deprecated
  */
+@deprecated()
 @injectable()
 export class SessionManager implements ISessionManager {
   private _tokenAccess: IDataAccess<Token>;
