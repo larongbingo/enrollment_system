@@ -5,6 +5,9 @@ import { AUTH_CONFIG } from "../config";
 import { User } from "../database/models/user";
 import { ISessionManager } from "../interfaces/ISessionManager";
 
+/**
+ * Uses an array to store all of the given Session strings
+ */
 @injectable()
 export class ArraySessionManager implements ISessionManager {
   private _sessions: string[] = [];

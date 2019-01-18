@@ -1,3 +1,4 @@
+import deprecated from "deprecated-decorator";
 import { injectable } from "inversify";
 import { ICreateOptions, IFindOptions } from "sequelize-typescript";
 // tslint:disable-next-line:no-submodule-imports
@@ -24,6 +25,10 @@ export class UserDataAccess implements IDataAccess<User> {
   }
 }
 
+/**
+ * @deprecated
+ */
+@deprecated()
 @injectable()
 export class TokenDataAccess implements IDataAccess<Token> {
   public async create(values?: FilteredModelAttributes<Token>, options?: ICreateOptions) {

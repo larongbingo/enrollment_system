@@ -1,5 +1,10 @@
 import { sequelize } from "../database/connection";
 
+/**
+ * npm run scripts:sync-tables
+ * 
+ * Updates the MySQL Server with the models in ../app/database/models/*
+ */
 (async function() {
   if(process.env.NODE_ENV === "production") {
     console.log("CANNOT RUN THIS ON A PRODUCTION SERVER;");

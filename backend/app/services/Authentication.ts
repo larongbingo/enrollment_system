@@ -7,6 +7,10 @@ import { IAuth } from "../interfaces/IAuth";
 import { IDataAccess } from "../interfaces/IDataAccess";
 import { ISessionManager } from "../interfaces/ISessionManager";
 
+/**
+ * An implementation of IAuth; handles the creation and deletion of 
+ * JWT Session string
+ */
 @injectable()
 export class Authentication implements IAuth {
   private _users: IDataAccess<User>;
