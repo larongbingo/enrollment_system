@@ -1,9 +1,14 @@
+import { deprecated } from "deprecated-decorator";
 import { Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 
 import { IToken } from "../../interfaces/model.columns/IToken";
 
 import { User } from "./user";
 
+/**
+ * @deprecated
+ */
+@deprecated()
 @Table({
   tableName: "tokens",
   paranoid: true
