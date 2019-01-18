@@ -9,7 +9,8 @@ import { ISessionManager } from "../interfaces/ISessionManager";
 export class ArraySessionManager implements ISessionManager {
   private _sessions: string[] = [];
 
-  public async createToken(details: User): Promise<string> {
+  public async createToken(details: User): Promise<string | null> {
+    if(!details) { return null; }
     let token = sign({id: details.id}, AUTH_CONFIG.jwt_key);
     this._sessions.push(token);
     return token;
