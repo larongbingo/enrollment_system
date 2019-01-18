@@ -10,6 +10,9 @@ import { ISessionManager } from "./interfaces/ISessionManager";
 import ArraySessionManager from "./services/ArraySessionManager";
 import Authentication from "./services/Authentication";
 
+/**
+ * Holds the entire dependency graph of the project
+ */
 export const CONTAINER = new Container();
 
 CONTAINER.bind<IDataAccess<Token>>(CONSTANTS.dataAccess.Token).to(TokenDataAccess).inSingletonScope();

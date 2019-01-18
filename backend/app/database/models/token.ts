@@ -6,6 +6,7 @@ import { IToken } from "../../interfaces/model.columns/IToken";
 import { User } from "./user";
 
 /**
+ * JWT Session Key
  * @deprecated
  */
 @deprecated()
@@ -14,9 +15,16 @@ import { User } from "./user";
   paranoid: true
 })
 export class Token extends Model<Token> implements IToken {
+
+  /**
+   * The actual JWT Session string
+   */
   @Column(DataType.STRING)
   public token: string;
 
+  /**
+   * Id of the user that owns this session string
+   */
   @ForeignKey(() => User)
   @Column(DataType.STRING)
   public userId?: string;
