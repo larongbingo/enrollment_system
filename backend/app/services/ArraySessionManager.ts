@@ -15,7 +15,7 @@ export class ArraySessionManager implements ISessionManager {
     return token;
   }  
   public async destroyToken(token: string): Promise<void> {
-    this._sessions.splice(this._sessions.indexOf(token), 1);
+    this._sessions = this._sessions.splice(this._sessions.indexOf(token), 1);
   }
 
   public async verifyToken(token: string): Promise<boolean> {
