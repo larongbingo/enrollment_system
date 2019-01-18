@@ -1,4 +1,4 @@
-import IUser from "./model.columns/IUser";
+import { IUser } from "./model.columns/IUser";
 
 export interface IAccountRegistry {
   createUser(details: IUser): Promise<IUser>;
