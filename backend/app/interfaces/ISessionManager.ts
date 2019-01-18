@@ -1,10 +1,10 @@
-import { User } from "../database/models/user";
+import IUser from "./model.columns/IUser";
 
 /**
  * Manages creation and deletion of JWT Session keys
  */
 export interface ISessionManager {
-  createToken(details: User): Promise<string>;
+  createToken(details: IUser): Promise<string>;
   destroyToken(token: string): Promise<void>;
   verifyToken(token: string): Promise<boolean>;
 }
