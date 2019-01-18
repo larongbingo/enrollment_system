@@ -31,11 +31,11 @@ export class Authentication implements IAuth {
       if(!user || !await user.checkPassword(password)) { return null; }
     }
     catch(err) { return null; }
-    return this._sessionManager.create(user);
+    return this._sessionManager.createToken(user);
   }
 
   public async logOut(token: string) {
-    this._sessionManager.destroy(token);
+    this._sessionManager.destroyToken(token);
   }
 }
 

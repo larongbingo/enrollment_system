@@ -35,17 +35,17 @@ export class SessionManager implements ISessionManager {
     });
   }
   
-  public async create(details: User): Promise<string> {
+  public async createToken(details: User): Promise<string> {
     let token = sign({id: details.id}, AUTH_CONFIG.jwt_key);
     this._events.emit("store", token, details.id);
     return token;
   }
 
-  public async destroy(token: string): Promise<void> {
+  public async destroyToken(token: string): Promise<void> {
     this._events.emit("delete", token);
   }
 
-  public async verify(token: string): Promise<boolean> {
+  public async verifyToken(token: string): Promise<boolean> {
     try { 
       verify(token, AUTH_CONFIG.jwt_key);
       if(!await this._tokenAccess.findOne({where: {token: {[Op.eq]: token}}})) { return false; }

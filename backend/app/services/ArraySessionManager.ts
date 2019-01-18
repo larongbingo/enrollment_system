@@ -9,16 +9,16 @@ import { ISessionManager } from "../interfaces/ISessionManager";
 export class ArraySessionManager implements ISessionManager {
   private _sessions: string[] = [];
 
-  public async create(details: User): Promise<string> {
+  public async createToken(details: User): Promise<string> {
     let token = sign({id: details.id}, AUTH_CONFIG.jwt_key);
     this._sessions.push(token);
     return token;
   }  
-  public async destroy(token: string): Promise<void> {
+  public async destroyToken(token: string): Promise<void> {
     this._sessions.splice(this._sessions.indexOf(token), 1);
   }
 
-  public async verify(token: string): Promise<boolean> {
+  public async verifyToken(token: string): Promise<boolean> {
     if(this._sessions.indexOf(token) === -1) { return false; }
     return true;
   }
