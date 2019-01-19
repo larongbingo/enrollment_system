@@ -22,15 +22,15 @@ describe("ArraySessionManager Service", function() {
   });
 
   it("should have a function named createToken", function() {
-    expect(typeof S.createToken).to.be.equal("Function");
+    expect(typeof S.createToken).to.be.equal("function");
   });
 
   it("should have a function named destroyToken", function() {
-    expect(typeof S.destroyToken).to.be.equal("Function");
+    expect(typeof S.destroyToken).to.be.equal("function");
   });
   
   it("should have a function named verifyToken", function() {
-    expect(typeof S.verifyToken).to.be.equal("Function");
+    expect(typeof S.verifyToken).to.be.equal("function");
   });
 
   describe("Normal Activity", function() {
