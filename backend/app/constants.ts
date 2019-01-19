@@ -7,6 +7,7 @@ export const CONSTANTS = {
     Authentication: Symbol.for("Authentication"),
     SessionManager: Symbol.for("SessionManager"),
     UserValidation: Symbol.for("UserValidation"),
+    AccountRegistry: Symbol.for("AccountRegistry"),
   },
 };
 
