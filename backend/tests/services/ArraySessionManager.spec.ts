@@ -96,7 +96,7 @@ describe("ArraySessionManager Service", function() {
       before(function(done) {
         S.createToken({username: "asd", password: "asd"})
         .then((_token) => {
-          token = _token;
+          token = _token!;
           done();
         })
         .catch(done);
