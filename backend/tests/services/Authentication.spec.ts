@@ -5,8 +5,6 @@ import sinonChai from "sinon-chai";
 
 import CONSTANTS from "../../app/constants";
 import CONTAINER from "../../app/container";
-import { sequelize } from "../../app/database/connection";
-import Token from "../../app/database/models/token";
 import User from "../../app/database/models/user";
 import { IAuth } from "../../app/interfaces/IAuth";
 import Authentication from "../../app/services/Authentication";
@@ -23,8 +21,7 @@ describe("Authentication Service", function() {
   before(function(done) {
     this.timeout(10000);
     S = CONTAINER.get<IAuth>(CONSTANTS.services.Authentication);
-    sequelize.query(`DELETE FROM ${Token.getTableName()};`)
-    .then(() => User.create({...USER}).then(() => done()));
+    User.create({...USER}).then(() => done());
   });
 
   it("should return an object when Container.get was called with the key", function() {
@@ -80,12 +77,6 @@ describe("Authentication Service", function() {
 
     describe("Authentication.logOut Function", function() {
       let token: string;
-
-      before(function(done) {
-        sequelize.query(`DELETE FROM ${Token.getTableName()};`)
-        .then(() => done())
-        .catch(done);
-      });
 
       beforeEach(function(done) {
         S.logIn(USER.username, USER.password).then((_token) => {
