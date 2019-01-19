@@ -5,8 +5,10 @@ import sinonChai from "sinon-chai";
 
 import CONSTANTS from "../../app/constants";
 import CONTAINER from "../../app/container";
+import "../../app/database/connection";
 import User from "../../app/database/models/user";
 import { IAuth } from "../../app/interfaces/IAuth";
+import { ISessionManager } from "../../app/interfaces/ISessionManager";
 import Authentication from "../../app/services/Authentication";
 
 // tslint:disable:no-unused-expression
@@ -99,7 +101,7 @@ describe("Authentication Service", function() {
   describe("Behavior Tests", function() {
     let checkPassword: () => boolean;
     let stubbedUserDataAccess: any;
-    let stubbedSessionManager: any;
+    let stubbedSessionManager: ISessionManager;
     let stubbedS: Authentication;
 
     beforeEach(function() {
@@ -112,9 +114,9 @@ describe("Authentication Service", function() {
       };
   
       stubbedSessionManager = {
-        create: fake.returns(""),
-        destroy: fake(),
-        verify: fake(),
+        createToken: fake.returns(""),
+        destroyToken: fake(),
+        verifyToken: fake(),
       };
 
       stubbedS = new Authentication(
@@ -127,7 +129,7 @@ describe("Authentication Service", function() {
       it("should call StubbedSessionManager.create when following the valid credentials scene", function(done) {
         stubbedS.logIn(USER.username, USER.password)
         .then(() => {
-          expect(stubbedSessionManager.create).to.be.calledOnce;
+          expect(stubbedSessionManager.createToken).to.be.calledOnce;
           done();
         })
         .catch(done);
@@ -156,7 +158,7 @@ describe("Authentication Service", function() {
       it("should call StubbedSessionManager.destroy", function(done) {
         stubbedS.logOut("")
         .then(() => {
-          expect(stubbedSessionManager.destroy).to.have.been.calledOnce;
+          expect(stubbedSessionManager.destroyToken).to.have.been.calledOnce;
           done();
         })
         .catch(done);
