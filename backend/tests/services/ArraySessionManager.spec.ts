@@ -47,7 +47,7 @@ describe("ArraySessionManager Service", function() {
       it("should return null when given null", function(done) {
         S.createToken(null!)
         .then((token) => {
-          expect(token).to.be.null("null");
+          expect(token).to.be.null;
           done();
         })
         .catch(done);
@@ -56,7 +56,7 @@ describe("ArraySessionManager Service", function() {
       it("should return null when given undefined", function(done) {
         S.createToken(undefined!)
         .then((token) => {
-          expect(token).to.be.null("null");
+          expect(token).to.be.null;
           done();
         })
         .catch(done);
