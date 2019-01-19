@@ -1,4 +1,4 @@
-import IUser from "./model.columns/IUser";
+import { IUser } from "./model.columns/IUser";
 
 /**
  * Manages creation and deletion of JWT Session keys
