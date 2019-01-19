@@ -7,6 +7,7 @@ export interface IAccountRegistry {
   /**
    * Creates a new user
    * @param details The details for the new user
+   * @returns Returns an instance of IUser if the user is created; null otherwise
    */
   createUser(details: IUser): Promise<IUser | null>;
   
@@ -14,6 +15,7 @@ export interface IAccountRegistry {
    * Updates the user using the id 
    * @param newDetails The new details of the user
    * @param userId The id of the user
+   * @returns Returns an instance of IUser if everything is valid; null otherwise
    */
   updateUser(newDetails: IUser, userId: string): Promise<IUser | null>;
 
