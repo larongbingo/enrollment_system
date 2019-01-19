@@ -38,7 +38,7 @@ describe("ArraySessionManager Service", function() {
       it("should return a string when given a User", function(done) {
         S.createToken({username: "asd", password: "asd"})
         .then((token) => {
-          expect(token).to.be.string("string");
+          expect(typeof token).to.be.equal("string");
           done();
         })
         .catch(done);
