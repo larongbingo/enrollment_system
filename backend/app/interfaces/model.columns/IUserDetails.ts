@@ -3,6 +3,11 @@
  */
 export interface IUserDetails {
   /**
+   * The id of the user
+   */
+  userId: string;
+
+  /**
    * First name of the user
    */
   firstName: string;
