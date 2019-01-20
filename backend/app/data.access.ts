@@ -6,6 +6,7 @@ import { FilteredModelAttributes } from "sequelize-typescript/lib/models/Model";
 
 import Token from "./database/models/token";
 import User from "./database/models/user";
+import UserDetails from "./database/models/user.details";
 import { IDataAccess } from "./interfaces/IDataAccess";
 
 // tslint:disable:max-classes-per-file
@@ -41,5 +42,18 @@ export class TokenDataAccess implements IDataAccess<Token> {
 
   public async findAll(options?: IFindOptions<Token>) {
     return Token.findAll(options);
+  }
+}
+
+export class UserDetailsDataAccess implements IDataAccess<UserDetails> {
+  public async create(values?: FilteredModelAttributes<UserDetails>, options?: ICreateOptions): Promise<UserDetails> {
+    return UserDetails.create(values, options);
+  }  
+  
+  public async findOne(options?: IFindOptions<UserDetails> | undefined): Promise<UserDetails | null> {
+    return UserDetails.findOne(options);
+  }
+  public async findAll(options?: IFindOptions<UserDetails> | undefined): Promise<UserDetails[]> {
+    return UserDetails.findAll(options);
   }
 }

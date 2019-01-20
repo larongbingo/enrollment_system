@@ -1,9 +1,10 @@
 import { Container } from "inversify";
 
 import CONSTANTS from "./constants";
-import { TokenDataAccess, UserDataAccess } from "./data.access";
+import { TokenDataAccess, UserDataAccess, UserDetailsDataAccess } from "./data.access";
 import Token from "./database/models/token";
 import User from "./database/models/user";
+import UserDetails from "./database/models/user.details";
 import { IAccountRegistry } from "./interfaces/IAccountRegistry";
 import { IAuth } from "./interfaces/IAuth";
 import { IDataAccess } from "./interfaces/IDataAccess";
@@ -21,6 +22,7 @@ export const CONTAINER = new Container();
 
 CONTAINER.bind<IDataAccess<Token>>(CONSTANTS.dataAccess.Token).to(TokenDataAccess).inSingletonScope();
 CONTAINER.bind<IDataAccess<User>>(CONSTANTS.dataAccess.User).to(UserDataAccess).inSingletonScope();
+CONTAINER.bind<IDataAccess<UserDetails>>(CONSTANTS.dataAccess.UserDetails).to(UserDetailsDataAccess).inSingletonScope();
 CONTAINER.bind<ISessionManager>(CONSTANTS.services.SessionManager).to(ArraySessionManager).inSingletonScope();
 CONTAINER.bind<IAuth>(CONSTANTS.services.Authentication).to(Authentication).inSingletonScope();
 CONTAINER.bind<IUserValidations>(CONSTANTS.services.UserValidation).to(UserValidations).inSingletonScope();
