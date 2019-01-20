@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 
 import User from "./models/user";
+import Token from "./models/user.details";
 
 /**
  * Adds all of the models to the given sequelize instance
@@ -8,6 +9,7 @@ import User from "./models/user";
 export function initModels(sequelize: Sequelize) {
   sequelize.addModels([
     User,
+    Token,
   ]);
 }
 
