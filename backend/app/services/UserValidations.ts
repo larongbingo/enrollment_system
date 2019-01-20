@@ -1,4 +1,4 @@
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { Op } from "sequelize";
 
 import CONSTANTS from "../constants";
@@ -6,6 +6,7 @@ import User from "../database/models/user";
 import { IDataAccess } from "../interfaces/IDataAccess";
 import { IUserValidations } from "../interfaces/IUserValidations";
 
+@injectable()
 export class UserValidations implements IUserValidations {
   private _userAccess: IDataAccess<User>;
 
