@@ -19,8 +19,11 @@ export class UserValidations implements IUserValidations {
 
   public async isUsernameUnique(username: string): Promise<boolean> {
     if(!username) { return false; }
-    let token = await this._userAccess.findAll({where: {username: {[Op.eq]: username}}});
-    if(token.length > 0) { return false; }
+    try {
+      let token = await this._userAccess.findAll({where: {username: {[Op.eq]: username}}});
+      if(token.length > 0) { return false; }
+    }
+    catch(err) { return false; }
     return true;
   }
 
