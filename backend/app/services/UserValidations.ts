@@ -18,8 +18,8 @@ export class UserValidations implements IUserValidations {
   }
 
   public async isUsernameUnique(username: string): Promise<boolean> {
-    if(this._userAccess.findOne({where: {username: {[Op.eq]: username}}})) { return true; }
-    return false;
+    if(!username || !await this._userAccess.findOne({where: {username: {[Op.eq]: username}}})) { return false; }
+    return true;
   }
 
 }
