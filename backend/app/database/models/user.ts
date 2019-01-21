@@ -1,6 +1,7 @@
 import { compare, hash } from "bcrypt";
 import { generate } from "randomstring";
-import { BeforeCreate, BeforeUpdate, Column, DataType, HasOne, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { BeforeCreate, BeforeUpdate, Column, 
+  DataType, HasOne, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
 
 import { AUTH_CONFIG } from "../../config";
 import { IUser } from "../../interfaces/model.columns/IUser";
@@ -42,6 +43,7 @@ export class User extends Model<User> implements IUser {
   /**
    * Account Identifier; used to identify the account
    */
+  @Unique
   @Column(DataType.STRING)
   public username: string;
 
