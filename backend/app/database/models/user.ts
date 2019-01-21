@@ -1,9 +1,11 @@
 import { compare, hash } from "bcrypt";
 import { generate } from "randomstring";
-import { BeforeCreate, BeforeUpdate, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { BeforeCreate, BeforeUpdate, Column, DataType, HasOne, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 import { AUTH_CONFIG } from "../../config";
 import { IUser } from "../../interfaces/model.columns/IUser";
+
+import UserDetails from "./user.details";
 
 /**
  * Credentials of the user
@@ -48,6 +50,9 @@ export class User extends Model<User> implements IUser {
    */
   @Column(DataType.STRING)
   public password: string;
+
+  @HasOne(() => UserDetails)
+  public details: UserDetails;
 
   /**
    * Checks if the given plain text matches the stored hash
