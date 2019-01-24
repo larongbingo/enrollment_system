@@ -37,7 +37,7 @@ export class AccountRegistry implements IAccountRegistry {
       user = await this._userAccess.findOne({where: {id: {[Op.eq]: userId}}});
       if(!user) { return null; }
       // @ts-ignore
-      Object.keys(newDetails).forEach((key) => (newDetails[key]) ?  user[key] = newDetails[key] : null);
+      Object.keys(newDetails).forEach((key) => user[key] = newDetails[key]);
       await user.save();
     }
     catch(err) { return null; }
