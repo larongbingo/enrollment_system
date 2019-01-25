@@ -1,6 +1,8 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
 
 import { IAcademicTime } from "../../interfaces/model.columns/IAcademicTime";
+
+import Schedule from "./schedule";
 
 @Table({
   tableName: "academicTimes",
@@ -12,6 +14,9 @@ export class AcademicTime extends Model<AcademicTime> implements IAcademicTime {
 
   @Column(DataType.STRING)
   public academicYear: string;
+
+  @HasMany(() => Schedule)
+  public schedules: Schedule[];
 }
 
 export default AcademicTime;
