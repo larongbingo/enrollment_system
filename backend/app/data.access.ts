@@ -4,6 +4,7 @@ import { ICreateOptions, IFindOptions } from "sequelize-typescript";
 // tslint:disable-next-line:no-submodule-imports
 import { FilteredModelAttributes } from "sequelize-typescript/lib/models/Model";
 
+import AcademicTime from "./database/models/academic.time";
 import Token from "./database/models/token";
 import User from "./database/models/user";
 import UserDetails from "./database/models/user.details";
@@ -55,5 +56,19 @@ export class UserDetailsDataAccess implements IDataAccess<UserDetails> {
   }
   public async findAll(options?: IFindOptions<UserDetails> | undefined): Promise<UserDetails[]> {
     return UserDetails.findAll(options);
+  }
+}
+
+export class AcademicTimeDataAccess implements IDataAccess<AcademicTime> {
+  public async create(values?: FilteredModelAttributes<AcademicTime>, options?: ICreateOptions): Promise<AcademicTime> {
+    return AcademicTime.create(values, options);
+  }
+
+  public async findOne(options?: IFindOptions<AcademicTime> | undefined): Promise<AcademicTime | null> {
+    return AcademicTime.findOne(options);
+  }
+
+  public async findAll(options?: IFindOptions<AcademicTime> | undefined): Promise<AcademicTime[]> {
+    return AcademicTime.findAll(options);
   }
 }
