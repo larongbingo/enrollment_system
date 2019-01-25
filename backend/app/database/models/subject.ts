@@ -1,6 +1,8 @@
-import { Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 import { ISubject } from "../../interfaces/model.columns/ISubject";
+
+import RequiredSession from "./required.session";
 
 @Table({
   tableName: "subjects",
@@ -19,6 +21,9 @@ export class Subject extends Model<Subject> implements ISubject {
   
   @Column(DataType.STRING)
   public subjectDescription?: string | undefined;
+
+  @HasMany(() => RequiredSession)
+  public requiredSessions: RequiredSession[];
 }
 
 export default Subject;

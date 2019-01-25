@@ -1,6 +1,8 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 
 import { IRequiredSession } from "../../interfaces/model.columns/IRequiredSession";
+
+import Subject from "./subject";
 
 @Table({
   tableName: "requiredSessions",
@@ -13,6 +15,12 @@ export class RequiredSession extends Model<RequiredSession> implements IRequired
   @Column(DataType.STRING)
   public requiredTimeLength: number;
 
+  @ForeignKey(() => Subject)
+  @Column(DataType.STRING)
+  public subjectCode: string;
+
+  @BelongsTo(() => Subject)
+  public subject: Subject;
 }
 
 export default RequiredSession;
