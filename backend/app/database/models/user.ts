@@ -1,12 +1,14 @@
 import { compare, hash } from "bcrypt";
 import { generate } from "randomstring";
-import { BeforeCreate, BeforeUpdate, Column, 
-  DataType, HasOne, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
+import { BeforeCreate, BeforeUpdate, BelongsToMany, 
+  Column, DataType, HasOne, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
 
 import { AUTH_CONFIG } from "../../config";
 import { IUser } from "../../interfaces/model.columns/IUser";
 
+import Schedule from "./schedule";
 import UserDetails from "./user.details";
+import UserSchedule from "./user.schedule";
 
 /**
  * Credentials of the user
@@ -55,6 +57,9 @@ export class User extends Model<User> implements IUser {
 
   @HasOne(() => UserDetails)
   public details: UserDetails;
+
+  @BelongsToMany(() => Schedule, () => UserSchedule)
+  public schedules: Schedule[];
 
   /**
    * Checks if the given plain text matches the stored hash
