@@ -3,7 +3,6 @@ import { generate } from "randomstring";
 import { BeforeCreate, BeforeUpdate, BelongsToMany, 
   Column, DataType, HasOne, Model, PrimaryKey, Table, Unique } from "sequelize-typescript";
 
-import { AUTH_CONFIG } from "../../config";
 import { IUser } from "../../interfaces/model.columns/IUser";
 
 import Schedule from "./schedule";
