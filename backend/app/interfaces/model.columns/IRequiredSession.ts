@@ -11,4 +11,9 @@ export interface IRequiredSession {
    * How long the session should last (in terms of hours)
    */
   requiredTimeLength: number;
+
+  /**
+   * Foreign Key to Subject Model
+   */
+  subjectCode: string;
 }
