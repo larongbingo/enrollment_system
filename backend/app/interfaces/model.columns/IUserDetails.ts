@@ -3,6 +3,7 @@
  */
 export interface IUserDetails {
   /**
+   * Foreign Key to User model
    * The id of the user
    */
   userId: string;
