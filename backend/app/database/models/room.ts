@@ -19,3 +19,5 @@ export class Room extends Model<Room> implements IRoom {
   @Column(DataType.TEXT)
   public roomAddress?: string | undefined;
 }
+
+export default Room;
