@@ -13,6 +13,11 @@ import UserSchedule from "./user.schedule";
   paranoid: true
 })
 export class Schedule extends Model<Schedule> implements ISchedule {
+  @BeforeCreate
+  private static async generateID(instance: Schedule) {
+    instance.scheduleCode = `${new Date().getFullYear()}${generate({ charset: "numeric", length: 11 })}`;
+  }
+
   @PrimaryKey
   @Column(DataType.STRING)
   public scheduleCode: string;
@@ -26,11 +31,6 @@ export class Schedule extends Model<Schedule> implements ISchedule {
 
   @BelongsTo(() => AcademicTime)
   public academicTime: AcademicTime;
-
-  @BeforeCreate
-  private async generateID(instance: Schedule) {
-    instance.scheduleCode = `${new Date().getFullYear()}${generate({ charset: "numeric", length: 11 })}`;
-  }
 }
 
 export default Schedule;
