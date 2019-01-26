@@ -27,11 +27,13 @@ export class AccountRegistry implements IAccountRegistry {
   }
 
   public async createUser(details: IUser): Promise<IUser | null> {
+    if(!details) { return null; }
     if(!await this._userValidation.isUsernameUnique(details.username)) { return null; }
     return this._userAccess.create(details);
   }  
   
   public async updateUser(newDetails: IUser, userId: string): Promise<IUser | null> {
+    if(!newDetails || !userId) { return null; }
     let user: User | null;
     try {
       user = await this._userAccess.findOne({where: {id: {[Op.eq]: userId}}});
@@ -46,6 +48,7 @@ export class AccountRegistry implements IAccountRegistry {
   }
 
   public async deleteUser(userId: string): Promise<boolean> {
+    if(!userId) { return false; }
     let user: User | null;
     try {
       user = await this._userAccess.findOne({where: {id: {[Op.eq]: userId}}});
