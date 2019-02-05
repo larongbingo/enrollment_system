@@ -9,6 +9,7 @@ import RequiredSession from "./database/models/required.session";
 import Room from "./database/models/room";
 import Schedule from "./database/models/schedule";
 import Session from "./database/models/session";
+import Subject from "./database/models/subject";
 import Token from "./database/models/token";
 import User from "./database/models/user";
 import UserDetails from "./database/models/user.details";
@@ -131,5 +132,19 @@ export class SessionDataAccess implements IDataAccess<Session> {
 
   public async findAll(options?: IFindOptions<Session> | undefined): Promise<Session[]> {
     return Session.findAll(options);
+  }
+}
+
+export class SubjectDataAccess implements IDataAccess<Subject> {
+  public async create(values?: FilteredModelAttributes<Subject>, options?: ICreateOptions): Promise<Subject> {
+    return Subject.create(values, options);
+  }
+  
+  public async findOne(options?: IFindOptions<Subject> | undefined): Promise<Subject | null> {
+    return Subject.findOne(options);
+  }
+
+  public async findAll(options?: IFindOptions<Subject> | undefined): Promise<Subject[]> {
+    return Subject.findAll(options);
   }
 }
