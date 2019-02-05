@@ -4,9 +4,9 @@ import { Op } from "sequelize";
 import CONSTANTS from "../constants";
 import User from "../database/models/user";
 import UserDetails from "../database/models/user.details";
+import { IUserValidations } from "../interfaces/business.rules/IUserValidations";
 import { IAccountRegistry } from "../interfaces/IAccountRegistry";
 import { IDataAccess } from "../interfaces/IDataAccess";
-import { IUserValidations } from "../interfaces/IUserValidations";
 import { IUser } from "../interfaces/model.columns/IUser";
 import { IUserDetails } from "../interfaces/model.columns/IUserDetails";
 

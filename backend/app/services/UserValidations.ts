@@ -3,8 +3,8 @@ import { Op } from "sequelize";
 
 import CONSTANTS from "../constants";
 import User from "../database/models/user";
+import { IUserValidations } from "../interfaces/business.rules/IUserValidations";
 import { IDataAccess } from "../interfaces/IDataAccess";
-import { IUserValidations } from "../interfaces/IUserValidations";
 
 @injectable()
 export class UserValidations implements IUserValidations {
